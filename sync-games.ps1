@@ -11,9 +11,14 @@ $FolderBrowser = New-Object System.Windows.Forms.FolderBrowserDialog -Property @
     SelectedPath = $path
 }
  
-[void]$FolderBrowser.ShowDialog()
-$newpath = $FolderBrowser.SelectedPath
+$result = $FolderBrowser.ShowDialog()
 
-$newpath > $settingsFile
+if ($result -eq [Windows.Forms.DialogResult]::Ok) {
+    $newpath = $FolderBrowser.SelectedPath
 
-.\winscp.com /command "open ftp://lannetje:lan@192.168.178.49" "synchronize local -delete ""$newpath"" /" "exit"
+    $newpath > $settingsFile
+
+    .\winscp.com /command "open ftp://lannetje:lan@192.168.178.49" "synchronize local -delete ""$newpath"" /" "exit"
+} else {
+    'Aborted...'
+}
