@@ -18,7 +18,7 @@ if ($result -eq [Windows.Forms.DialogResult]::Ok) {
 
     $newpath > $settingsFile
 
-    .\winscp.com /command "open ftp://lannetje:lan@192.168.178.49" "synchronize local -delete """"$newpath"""" /" "exit"
+    .\winscp.com /command "open ftp://lannetje:lan@192.168.178.49" "synchronize local """"$newpath"""" /" "exit"
 } else {
     'Aborted...'
 }
