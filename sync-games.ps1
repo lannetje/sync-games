@@ -7,7 +7,7 @@ $path = Get-Content $settingsFile
 $FolderBrowser = New-Object System.Windows.Forms.FolderBrowserDialog -Property @{
     Description = 'Pick the path you want the games synced to'
     RootFolder = 0x11
-    ShowNewFolderButton = $false
+    ShowNewFolderButton = $True
     SelectedPath = $path
 }
  
