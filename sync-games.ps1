@@ -25,7 +25,7 @@ if ($result -eq [Windows.Forms.DialogResult]::Ok) {
 
     $newpath > $pathFile
 
-    .\winscp.com /command "open ftp://lannetje:lan@$newServerIp" "synchronize local -criteria=none """"$newpath"""" /" "exit"
+    .\winscp.com /command "open ftp://lannetje:lan@$newServerIp -explicit -certificate=""c5:4f:05:da:0d:da:54:db:04:5b:45:2b:01:38:02:5c:e5:ee:8c:08""" "synchronize local -criteria=none """"$newpath"""" /files" "exit"
 } else {
     'Aborted...'
 }
